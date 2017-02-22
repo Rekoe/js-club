@@ -8,7 +8,7 @@
     </div>
     <div class="form-group">
         <label for="content">内容</label>
-        <textarea class="form-control" rows="40" required name="content"><%= article.content %></textarea>
+        <textarea name="content" rows="400" cols="100" class="form-control" placeholder="使用Markdown语法" id="comment-area"><%= article.content %></textarea>
     </div>
     <div class="form-group">
         <label class="checkbox-inline">
@@ -63,5 +63,8 @@
                 $(this).removeAttr('checked');
             }
         });
+
+        var editor = new Editor();
+        editor.render($('#comment-area')[0]);
     });
 </script>

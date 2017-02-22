@@ -1,0 +1,20 @@
+<ul class="article-list">
+	<% if(article.length >0){ %>
+	<% article.forEach(function(art){%>
+	<li>
+		<h2><a href="/topic/<%= art._id %>"><%= art.title %></a></h2>
+		<p><%- art.content %> <a href="/topic/<%= art._id %>">[原文链接]</a></p>
+		<div class="clearfix art-msg">
+		<div class="col-lg-8 no-margin">
+			<%= art.userName %> 
+			<span><i class="fa fa-clock-o" aria-hidden="true"></i> <%= art.create_at %> </span>
+			<span><i class="fa fa-bookmark-o" aria-hidden="true"></i> <%= art.tag %></span>
+		</div>
+		<div class="col-lg-4 no-margin text-right">
+			<i class="fa fa-commenting-o" aria-hidden="true"></i> <%= art.feedback %>评论 
+			<span><i class="fa fa-eye" aria-hidden="true"></i> <%= art.pv %>阅读</span>
+		</div>
+	</li>
+	<% }) %>
+	<% } %>
+</ul>

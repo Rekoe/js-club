@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>文档笔记</title>
+    <link rel="stylesheet" type="text/css" href="/js/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/js/lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/editor/0.1.0/editor.css">
+    <link rel="stylesheet" type="text/css" href="/css/f2edoc.css">
+
+    <script type="text/javascript" src="/js/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+    <script src="//cdn.jsdelivr.net/editor/0.1.0/editor.js"></script>
+    <script src="//cdn.jsdelivr.net/editor/0.1.0/marked.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="container header-main">
+            <div class="navbar-header">
+                <a href="/" class="navbar-brand"><i class="fa fa-address-book" aria-hidden="true"></i> 文档笔记</a>
+            </div>
+            <nav id="bs-navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- <li>
+                        <a href="/">首页</a>
+                    </li> -->
+                    <li>
+                        <a href="/article">技术文章</a>
+                    </li>
+                    <!-- <li>
+                        <a href="/article">朝花夕拾</a>
+                    </li> -->
+                    <li>
+                        <a href="/ask">问答</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <% if(session.user != null) { %>
+                    <li>
+                        <a href="/profile/<%= session.user.dingId %>"><%= session.user.name %></a>
+                    </li>
+                    <li>
+                        <a href="/login_out">退出</a>
+                    </li>
+                    <% }else{ %>
+                    <li>
+                        <a href="/login">登录</a>
+                    </li>
+                    <% } %>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="container main-body">
+        <%- body %>
+    </div>
+    <div class="footer">
+        <p class="text-center foot-text no-margin">
+            微信群：快抢车-前端群
+        </p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<script src="//g.alicdn.com/dingding/dinglogin/0.0.2/ddLogin.js"></script>
+<div class="container intro text-center">
+    <h2 class="title">
+            登录
+        </h2>
+    <div class="login-form">
+        <div style="margin: 0 auto;" id="login_container"></div>
+    </div>
+</div>
+<script type="text/javascript">
+var obj = DDLogin({
+    id: 'login_container',
+    goto: 'https%3a%2f%2foapi.dingtalk.com%2fconnect%2foauth2%2fsns_authorize%3fappid%3ddingoa6lrest1tenlpvnks%26response_type%3dcode%26scope%3dsnsapi_login%26state%3d' + encodeURIComponent('http://127.0.0.1:3000/') + '%26redirect_uri%3dhttp%3a%2f%2fadmin.kuaiqiangche.com%2ferp%2flogin%2funionDingding',
+    style: "",
+    href: "",
+    width: "300px",
+    height: "300px"
+});
+
+
+var hanndleMessage = function(event) {
+    var loginTmpCode = event.data;
+    var origin = event.origin;
+    window.location.href = 'https://oapi.dingtalk.com/connect/oauth2/sns_authorize?appid=dingoa6lrest1tenlpvnks&response_type=code&scope=snsapi_login&state=' + encodeURIComponent('http://127.0.0.1:3000/') + '&redirect_uri=http%3a%2f%2fadmin.kuaiqiangche.com%2ferp%2flogin%2funionDingding&loginTmpCode=' + loginTmpCode;
+};
+if (typeof window.addEventListener != 'undefined') {
+    window.addEventListener('message', hanndleMessage, false);
+} else if (typeof window.attachEvent != 'undefined') {
+    window.attachEvent('onmessage', hanndleMessage);
+}
+</script>

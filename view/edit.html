@@ -1,0 +1,67 @@
+<form action="/publish_article" method="post">
+    <input type="hidden" value="<%= article._id %>" name="topic_id" />
+    <input type="hidden" <% if(article.great == 1){ %>value="1"<% }else{ %>value="0"<% } %> name="great" id="great"/>
+    <input type="hidden" <% if(article.top == 1){ %>value="1"<% }else{ %>value="0"<% } %> name="top" id="top"/>
+    <div class="form-group">
+        <label for="title">标题</label>
+        <input type="text" class="form-control" required name="title" value="<%= article.title %>">
+    </div>
+    <div class="form-group">
+        <label for="content">内容</label>
+        <textarea class="form-control" rows="40" required name="content"><%= article.content %></textarea>
+    </div>
+    <div class="form-group">
+        <label class="checkbox-inline">
+            <input type="checkbox" <% if(article.great == 1){ %>value="1"<% }else{ %>value="0"<% } %> name="greatcheck" <% if(article.great == 1){ %>checked="checked"<% } %> /> 加精
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" <% if(article.top == 1){ %>value="1"<% }else{ %>value="0"<% } %> name="topcheck" <% if(article.top == 1){ %>checked="checked"<% } %> /> 置顶
+        </label>
+    </div>
+    <div class="form-group">
+        <label for="tag">标签</label>
+        <select class="form-control" name="tag">
+            <option value="javascript" <% if(article.tag == 'javascript'){ %>selected<% } %>>javascript</option>
+            <option value="html/css" <% if(article.tag == 'html/css'){ %>selected<% } %>>html/css</option>
+            <option value="angularjs" <% if(article.tag == 'angularjs'){ %>selected<% } %>>angularjs</option>
+            <option value="reactjs/react-native" <% if(article.tag == 'reactjs/react-native'){ %>selected<% } %>>reactjs/react-native</option>
+            <option value="vuejs" <% if(article.tag == 'vuejs'){ %>selected<% } %>>vuejs</option>
+            <option value="nodejs" <% if(article.tag == 'nodejs'){ %>selected<% } %>>nodejs</option>
+            <option value="webpack/grunt/gulp/npm script" <% if(article.tag == 'webpack/grunt/gulp/npm script'){ %>selected<% } %>>webpack/grunt/gulp/npm script</option>
+            <option value="微信小程序" <% if(article.tag == '微信小程序'){ %>selected<% } %>>微信小程序</option>
+            <option value="php" <% if(article.tag == 'php'){ %>selected<% } %>>php</option>
+            <option value="文档" <% if(article.tag == '文档'){ %>selected<% } %>>文档</option>
+            <option value="业务备份" <% if(article.tag == '业务备份'){ %>selected<% } %>>业务备份</option>
+        </select>
+    </div>
+    
+    <button type="submit" class="btn btn-success">发表文章</button>
+</form>
+
+<script type="text/javascript">
+    $(function(){
+        $('[name="greatcheck"]').click(function(){
+            if($(this).is(':checked')){
+                $(this).val(1);
+                $(this).attr('checked', 'checked');
+                $('#great').val(1);
+            }else{
+                $(this).val(0);
+                $('#great').val(0);
+                $(this).removeAttr('checked');
+            }
+        });
+        
+        $('[name="topcheck"]').click(function(){
+            if($(this).is(':checked')){
+                $(this).val(1);
+                $(this).attr('checked', 'checked');
+                $('#top').val(1);
+            }else{
+                $(this).val(0);
+                $('#top').val(0);
+                $(this).removeAttr('checked');
+            }
+        });
+    });
+</script>

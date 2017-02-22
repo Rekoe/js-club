@@ -1,0 +1,39 @@
+{
+  "name": "f2edoc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "supervisor node start.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "babel": {
+    "presets": [
+      "es2015-node6",
+      "stage-3"
+    ]
+  },
+  "dependencies": {
+    "co": "^4.6.0",
+    "koa": "^2.0.0",
+    "koa-bodyparser": "^2.3.0",
+    "koa-convert": "^1.2.0",
+    "koa-ejs": "^3.0.0",
+    "koa-router": "7.0.0",
+    "koa-session": "^3.4.0",
+    "koa-static": "^2.1.0",
+    "marked": "^0.3.6",
+    "moment": "^2.17.1",
+    "mongoose": "^4.8.2",
+    "request": "^2.79.0",
+    "request-promise": "^4.1.1"
+  },
+  "devDependencies": {
+    "babel-core": "6.13.2",
+    "babel-polyfill": "6.13.0",
+    "babel-preset-es2015-node6": "0.3.0",
+    "babel-preset-stage-3": "6.5.0"
+  }
+}

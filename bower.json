@@ -1,0 +1,22 @@
+{
+  "name": "f2edoc",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "胡卫亮"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "js/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "Font-Awesome#^4.7.0"
+  }
+}

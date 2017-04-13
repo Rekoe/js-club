@@ -13,7 +13,7 @@ const app = new Koa();
 app.use(serve(__dirname + '/public/')); //静态文件目录
 app.use(bodyParser());
 
-//模板引挚设置test  111
+//模板引挚设置111
 render(app, {
     root: path.join(__dirname, 'view'),
     layout: 'layout',

@@ -2,7 +2,11 @@
 	<% if(article.length >0){ %>
 	<% article.forEach(function(art){%>
 	<li>
-		<h2><a href="/topic/<%= art._id %>"><%= art.title %></a></h2>
+		<h2>
+			<a href="/topic/<%= art._id %>"><%= art.title %></a> 
+			<% if(art.great == 1){ %><span class="great">精华</span><% } %>
+	        <% if(art.top == 1){ %><span class="top">置顶</span><% } %>
+        </h2>
 		<p><%- art.content %> <a href="/topic/<%= art._id %>">[原文链接]</a></p>
 		<div class="clearfix art-msg">
 		<div class="col-lg-8 no-margin">
